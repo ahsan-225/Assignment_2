@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main() {
+void main(){
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: ResponsiveFlagsPage(),
   ));
 }
 
-class ResponsiveFlagsPage extends StatelessWidget {
+class ResponsiveFlagsPage extends StatelessWidget{
   const ResponsiveFlagsPage({super.key});
 
-  final List<Map<String, String>> countries = const [
+  final List<Map<String, String>> countries = const[
     {"name": "Bangladesh", "url": "https://flagcdn.com/w320/bd.png"},
     {"name": "Pakistan", "url": "https://flagcdn.com/w320/pk.png"},
     {"name": "Japan", "url": "https://flagcdn.com/w320/jp.png"},
@@ -31,24 +31,26 @@ class ResponsiveFlagsPage extends StatelessWidget {
     {"name": "Morocco", "url": "https://flagcdn.com/w320/ma.png"},
   ];
 
-  int _getCrossAxisCount(double width) {
-    if (width < 768) {
+  int _getCrossAxisCount(double width){
+    if (width < 768){
       return 2;
-    } else if (width <= 1024) {
+    }
+    else if (width <= 1024){
       return 3;
-    } else {
+    }
+    else{
       return 4;
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         title: const Text("Responsive Design"),
       ),
       body: LayoutBuilder(
-        builder: (context, constraints) {
+        builder: (context, constraints){
           int crossAxisCount = _getCrossAxisCount(constraints.maxWidth);
 
           return GridView.builder(
@@ -60,7 +62,7 @@ class ResponsiveFlagsPage extends StatelessWidget {
               mainAxisSpacing: 16,
               childAspectRatio: 3 / 2,
             ),
-            itemBuilder: (context, index) {
+            itemBuilder: (context, index){
               final country = countries[index];
               return CountryCard(
                 name: country['name']!,
@@ -74,7 +76,7 @@ class ResponsiveFlagsPage extends StatelessWidget {
   }
 }
 
-class CountryCard extends StatelessWidget {
+class CountryCard extends StatelessWidget{
   final String name;
   final String flagUrl;
 
@@ -85,7 +87,7 @@ class CountryCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Card(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +110,7 @@ class CountryCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           ElevatedButton(
-            onPressed: () {},
+            onPressed:(){},
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 185, 179, 179),
               foregroundColor: const Color.fromARGB(255, 0, 0, 0),
