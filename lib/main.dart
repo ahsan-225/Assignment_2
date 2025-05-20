@@ -48,6 +48,7 @@ class ResponsiveFlagsPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text("Responsive Design"),
+        backgroundColor: Colors.blueAccent,
       ),
       body: LayoutBuilder(
         builder: (context, constraints){
